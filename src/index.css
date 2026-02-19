@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ocean-950 text-white antialiased;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .chat-bubble-user {
+    @apply bg-ocean-600 text-white rounded-2xl rounded-br-md px-4 py-3 max-w-[80%] ml-auto;
+  }
+
+  .chat-bubble-bento {
+    @apply bg-ocean-800/60 text-ocean-50 rounded-2xl rounded-bl-md px-4 py-3 max-w-[80%] border border-ocean-700/40;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-ocean-400 rounded-full animate-bounce;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ocean-700 rounded-full;
+}
+
+/* Animación de entrada de mensajes */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-enter {
+  animation: slideUp 0.3s ease-out;
+}
